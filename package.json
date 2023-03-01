@@ -1,8 +1,30 @@
 {
   "name": "vuse-axios",
-  "private": true,
   "version": "0.0.0",
+  "description": "use-axios for Vue.",
+  "author": "Eason Chan",
+  "keywords": [
+    "axios",
+    "use-axios",
+    "vue"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eas0nchan/vuse-axios.git"
+  },
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/vuse-axios.cjs",
+  "module": "./dist/vuse-axios.js",
+  "exports": {
+    ".": {
+      "require": "./dist/vuse-axios.cjs",
+      "import": "./dist/vuse-axios.js"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
