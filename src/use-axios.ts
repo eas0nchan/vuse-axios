@@ -41,7 +41,7 @@ export function useAxios<T extends Payload = never, D = any>(
   url: string,
   config?: AxiosRequestConfig,
   options: UseAxiosOptions<T, D> = {},
-  instacne: AxiosInstance = axios
+  instance: AxiosInstance = axios
 ): UseAxiosReturn<T, D> {
   const {
     autoCancelLastReq = false,
@@ -78,7 +78,7 @@ export function useAxios<T extends Payload = never, D = any>(
 
     isLoading.value = true
     isFinished.value = false
-    const [res, err] = await executeWithRetry<D>(() => instacne(_url, _config), retry)
+    const [res, err] = await executeWithRetry<D>(() => instance(_url, _config), retry)
     if (axios.isCancel(err)) return { isCancel: true } as ExecuteReturn<D>
     response.value = res
     data.value = res?.data
